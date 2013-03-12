@@ -2,7 +2,12 @@ import logging
 from zope import component
 from zope import interface
 from zope import schema
-from zope.component.hooks import getSite
+try:
+    from zope.component.hooks import getSite
+except ImportError:
+    #BBB
+    from zope.site.hooks import getSite    
+
 
 from plone.registry.interfaces import IRecordModifiedEvent
 from plone.z3cform import layout
